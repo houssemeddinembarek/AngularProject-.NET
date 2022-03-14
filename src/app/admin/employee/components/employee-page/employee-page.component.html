@@ -1,0 +1,71 @@
+ 
+
+  <div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <div style="display: inline-block; width: 100%;">
+            <div><h4 class="card-title" style="width: fit-content;float:left;">EMPLOYEE</h4></div>  
+            <div class="text-right " style="float: right;">
+            <button type="button" class="btn btn-social-icon btn-facebook btn-rounded" (click)="AddEmployee()"><i class=" typcn typcn-plus"></i></button>
+            </div>
+          </div>
+          <div class="table mt-4">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">First Name</th>
+                  <th scope="col">Last Name</th>
+                  <th scope="col">User Name</th>
+                  <th scope="col" style="width: 20px;">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of Employees">
+                  <th scope="row">{{item.firstName}}</th>
+                  <td>{{item.lastName}}</td>
+                  <td>{{item.userName}}</td>
+                  <td>
+                    <div>
+                      <div #e2Actions="ngbDropdown" ngbDropdown [placement]="['bottom-left','top-left']"
+                        class="d-inline-block actions" [autoClose]="'outside'">
+                        <button class="btn btn-standard" [id]="'actions-' + item.id" ngbDropdownToggle><i
+                            class="elipsiss-icon"></i></button>
+                        <div ngbDropdownMenu class="dropdown-menu dropdown-responsive" aria-labelledby="e2Actions">
+
+                        <button type="button" class="dropdown-item" (click)="SetPasswordId(item.id);open(content);">Set Password</button>
+                        <button type="button" class="dropdown-item" (click)="DeleteEmployee(item.id)">Delete</button>
+                        <button type="button" class="dropdown-item" (click)="UpdateEmployee(item)">Update</button>
+                        </div>
+                      </div>
+                    </div>            
+                    
+                    </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Update Password</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #f="ngForm">
+      <input type="text" name='password' placeholder="Password" #password="ngModel" ngModel required minlength="6">
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-outline-dark" [disabled]="f.invalid"
+      (click)="UpdatePassword(f);modal.close('Save click');">Update</button>
+  </div>
+</ng-template>

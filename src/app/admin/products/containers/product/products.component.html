@@ -1,0 +1,4 @@
+<app-products-page (SearchSubmit)="SearchSubmitted($event)" (UpdateStockSubmit)="UpdateStockSubmitted($event)"
+    (prodUpdated)="UpdateProduct($event)"
+    (SearByCategory)="SearByCategory($event)" (prodSubmit)="prodSubmitted($event)" (prodDelete)="prodDeleted($event)"
+    [products]="productList" [categories]="categories"></app-products-page>

@@ -1,0 +1,107 @@
+<nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+  <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+    <a class="navbar-brand brand-logo">OmegaTek</a>
+    <button class="navbar-toggler navbar-toggler align-self-center d-none d-lg-flex"  (click)="collapseSideBar()" type="button"
+      data-toggle="minimize">
+      <span class="typcn typcn-th-menu"></span>
+    </button>
+  </div>
+  <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+    
+    <ul class="navbar-nav navbar-nav-right">
+
+
+
+      <li class="nav-item nav-profile dropdown">
+        <a class="nav-link dropdown-toggle  pl-0 pr-0" role="button" (click)="isMenuCollapsed = !isMenuCollapsed"
+          data-toggle="dropdown" id="profileDropdown">
+          <span class="nav-profile-name">ADMIN</span>
+          <i class="typcn typcn-cog-outline"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" [ngClass]="{'show': !isMenuCollapsed}" aria-labelledby="profileDropdown">
+          <a class="dropdown-item" [routerLink]="['/employee']" routerLinkActive="active" >
+          <i class="typcn typcn-cog text-primary"></i>
+          EMPLOYEES
+          </a>
+          <a class="dropdown-item" [routerLink]="['/equipement']" routerLinkActive="active" >
+          <i class="typcn typcn-power text-primary"></i>
+          EQUIPEMENT
+          </a>
+          <a class="dropdown-item" (click)="Logout()" >
+          <i class="typcn typcn-power text-primary"></i>
+          LOGOUT
+          </a>
+        </div>
+
+      </li>
+    </ul>
+    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+      data-toggle="offcanvas">
+      <span class="typcn typcn-th-menu"></span>
+    </button>
+  </div>
+</nav>
+
+
+
+
+
+
+
+<!-- <div class="navbar navbar-inner navbar-fixed-top navbar-expand-lg ">
+  <a class="brand" (click)="isMenuCollapsed = !isMenuCollapsed"> Welcome </a>
+  <div class="container"> 
+    <div  [ngbCollapse]="isMenuCollapsed" class="nav-collapse collapse navbar-collapse">
+      <ul class="nav pull-right">
+        
+        <li class="nav-item">
+          <a class="nav-link active fs-5" routerLink="products" (click)="isMenuCollapsed = true">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active fs-5" routerLink='fixrequest' (click)="isMenuCollapsed = true">Fix Requests</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active fs-5" routerLink='seller' (click)="isMenuCollapsed = true">Seller</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active fs-5" routerLink='income' (click)="isMenuCollapsed = true">Income</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active fs-5" routerLink='credit' (click)="isMenuCollapsed = true">Credit</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active fs-5" routerLink='damagedgoods' (click)="isMenuCollapsed = true">Damaged Goods</a>
+        </li>
+        
+        <div ngbDropdown class="d-inline-block ">
+          <a class="nav-link active fs-5" id="dropdownBasic1" ngbDropdownToggle>Settings</a>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <a class="nav-link active fs-5" routerLink='productcategory' (click)="isMenuCollapsed = true">Products
+              Categories</a>
+            <a class="nav-link active fs-5" routerLink='equipement' (click)="isMenuCollapsed = true">Equipement
+              Categories</a>
+            <a class="nav-link active fs-5" routerLink='employee' (click)="isMenuCollapsed = true">Employees</a>
+          </div>
+        </div>
+
+        <div ngbDropdown class="d-inline-block ">
+          <a class="nav-link active fs-5" id="dropdownBasic1" ngbDropdownToggle>Settings</a>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <a class="nav-link active fs-5" routerLink='productcategory' (click)="isMenuCollapsed = true">Products
+              Categories</a>
+            <a class="nav-link active fs-5" routerLink='equipement' (click)="isMenuCollapsed = true">Equipement
+              Categories</a>
+            <a class="nav-link active fs-5" routerLink='employee' (click)="isMenuCollapsed = true">Employees</a>
+          </div>
+        </div>
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="btn btn-outline-secondary fs-5" role="button" (click)="isMenuCollapsed = true"
+            (click)="Logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div> -->

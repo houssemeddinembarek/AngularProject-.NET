@@ -1,0 +1,31 @@
+<div class="modal-header">
+    <div class="modal-title">
+        <h5>{{ProdDetails.title}}</h5>
+    </div>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+        (click)="activeModal.dismiss('Close click')"></button>
+</div>
+<div class="modal-body">
+    <div class="product_details">
+        <div>
+            <span>Price: </span>
+            <span>{{ProdDetails.price}}</span>
+        </div>
+        <div>
+            <span>Stock: </span>
+            <span [ngClass]="{'low-quantity': ProdDetails.stock < 3}">{{ProdDetails.stock}}</span>
+        </div>
+        <div>
+            <span>Discount: </span>
+            <span>{{ProdDetails.discount}}</span>
+        </div>
+        <div>
+            <span>Comment: </span>
+            <br>
+            <span>{{ProdDetails.comment}}</span>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Save click')">Close</button>
+</div>

@@ -1,0 +1,243 @@
+  <div class="col-md-12  text-right">
+    <button type="button" class="btn btn-social-icon btn-facebook btn-rounded" (click)="AddFixRequest()"><i class=" typcn typcn-plus"></i></button>
+  </div>
+
+
+
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">FIX REQUEST</h4> 
+          <div class="container">
+            <div class="row">
+
+              <div class="col-lg-6 offset-lg-3">
+                <div class="row">
+                  <div class="col">
+                    <form class="form-inline justify-content-center mb-3">
+                      <div class="form-group mr-2">
+                        <div class="input-group">
+                          <input class="form-control" name="selectedDate" placeholder="yyyy-mm-dd" [(ngModel)]="emittedDate"
+                            (ngModelChange)="performSearch()" (dateSelect)="onDateSelect($event)" ngbDatepicker #d2="ngbDatepicker">
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-keyboard"
+                                viewBox="0 0 16 16">
+                                <path
+                                  d="M14 5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h12zM2 4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H2z" />
+                                <path
+                                  d="M13 10.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm0-2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-5 0A.25.25 0 0 1 8.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 8 8.75v-.5zm2 0a.25.25 0 0 1 .25-.25h1.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-1.5a.25.25 0 0 1-.25-.25v-.5zm1 2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-5-2A.25.25 0 0 1 6.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 6 8.75v-.5zm-2 0A.25.25 0 0 1 4.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 4 8.75v-.5zm-2 0A.25.25 0 0 1 2.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 2 8.75v-.5zm11-2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-2 0a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-2 0A.25.25 0 0 1 9.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 9 6.75v-.5zm-2 0A.25.25 0 0 1 7.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 7 6.75v-.5zm-2 0A.25.25 0 0 1 5.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 5 6.75v-.5zm-3 0A.25.25 0 0 1 2.25 6h1.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-1.5A.25.25 0 0 1 2 6.75v-.5zm0 4a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm2 0a.25.25 0 0 1 .25-.25h5.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-5.5a.25.25 0 0 1-.25-.25v-.5z" />
+                              </svg></button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                
+                    <form class="form-inline justify-content-center mb-3">
+                      <div class="form-group mr-2">
+                        <div class="input-group">
+                          <input class="form-control" name="search" placeholder="Search by code" (keyup)="SearchByCode($event)">
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-secondary calendar" type="button"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path
+                                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                              </svg></button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="col">
+                    <form class="form-inline justify-content-center mb-3">
+                      <div class="form-group mr-2">
+                        <div class="input-group">
+                          <input class="form-control" name="search" placeholder="Search by name" (keyup)="SearchByName($event)">
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-secondary calendar" type="button">
+                              <svg xmlns="http://www.w3.org/2000/svg"
+                                width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path
+                                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                
+                    <form class="form-inline justify-content-center mb-3">
+                      <div class="form-group mr-2">
+                        <div class="input-group">
+                          <input class="form-control" name="search" placeholder="Search by number" (keyup)="SearchByNumber($event)">
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-secondary calendar" type="button">
+                              <svg xmlns="http://www.w3.org/2000/svg" 
+                                      width="16" height="16" fill="currentColor" 
+                                      class="bi bi-search" viewBox="0 0 16 16">
+                                <path
+                                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+            
+                </div>
+                
+                <form class="form-inline justify-content-center">
+                  <div class="form-group mr-2">
+                    <div class="input-group">
+                      <div #fixRequestFilters="ngbDropdown" ngbDropdown class="d-inline-block">
+                        <button class="btn btn-outline-primary" id="fixRequestFilters" ngbDropdownToggle>Categories</button>
+                        <div ngbDropdownMenu aria-labelledby="fixRequestFilters">
+                          <div class="control-group">
+                            <label class="control control-radio">
+                              Pending
+                              <input type="radio" name="radio" checked="checked" (change)="UpdateListing($event,1);fixRequestFilters.close();" />
+                              <div class="control_indicator"></div>
+                            </label>
+                            <label class="control control-radio">
+                              Payed pending
+                              <input type="radio" name="radio" (change)="UpdateListing($event,2);fixRequestFilters.close();" />
+                              <div class="control_indicator"></div>
+                            </label>
+                            <label class="control control-radio">
+                              Fixed
+                              <input type="radio" name="radio" (change)="UpdateListing($event,3);fixRequestFilters.close();" />
+                              <div class="control_indicator"></div>
+                            </label>
+                            <label class="control control-radio">
+                              Payed
+                              <input type="radio" name="radio" (change)="UpdateListing($event,4);fixRequestFilters.close();" />
+                              <div class="control_indicator"></div>
+                            </label>
+                            <label class="control control-radio">
+                              Delivered
+                              <input type="radio" name="radio" (change)="UpdateListing($event,5);fixRequestFilters.close();" />
+                              <div class="control_indicator"></div>
+                            </label>
+                            <label class="control control-radio">
+                              Unfixable
+                              <input type="radio" name="radio" (change)="UpdateListing($event,6);fixRequestFilters.close();" />
+                              <div class="control_indicator"></div>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+
+            
+            
+          <div> 
+        </div>
+
+
+    
+      <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">    
+                  <thead>
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Comment</th>
+                      <th scope="col">Code</th>
+                      <th scope="col">Payed?</th>
+                      <th scope="col">Client Name</th>
+
+                      <th scope="col">Fixed?</th>
+                      <th scope="col">CreatedAt</th>
+                      <th scope="col">Delivered?</th>
+                      <th scope="col" class="p-3" style="width: 70px;z-index: 2;">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of FixRequests"
+                      [ngClass]="{'table-danger' : !item.isFixed,'table-success' : item.isFixed}">
+                      <td scope="row">
+                        <div>{{item.equipementName}}</div>
+                      </td>
+                      <td>
+                        <div [tooltip]="item.comment" show-delay="100">{{item.comment}}</div>
+                      </td>
+                      <td>
+                        <div>{{item.code}}</div>
+                      </td>
+                      <td >
+                        <input type="checkbox" [id]="item.id + '+isPayed'" [name]="item.id" 
+                        [checked]="item.isPayed" (change)="ChangeStatus('isPayed',item)">
+                        <label [for]="item.id + '+isPayed'"></label>
+                      </td>
+                      <td>
+                        {{item.clientName}}
+                      </td>
+
+                      <td >
+                        <input type="checkbox" [id]="item.id + '+isFixed'" [name]="item.id" [checked]="item.isFixed"
+                          (change)="ChangeStatus('isFixed',item)">
+                        <label [for]="item.id + '+isFixed'"></label>
+                      </td>
+                      <td>
+                        <div>{{item.createdAt | date:'dd/MM/yy'}}</div>
+                      </td>
+                      <td>
+                        <input type="checkbox" [id]="item.id + '+isDelivered'" [name]="item.id" [checked]="item.isDelivered"
+                          (change)="ChangeStatus('isDelivered',item)">
+                        <label [for]="item.id + '+isDelivered'"></label>
+                      </td>
+                      <td>
+                        <div>
+                          <div #fixRequestActions="ngbDropdown" ngbDropdown [placement]="['bottom-left','top-left']"
+                            class="d-inline-block actions" [autoClose]="'outside'">
+                            <button class="btn btn-standard" [id]="'actions-' + item.id" ngbDropdownToggle><i
+                                class="elipsiss-icon"></i></button>
+                            <div ngbDropdownMenu class="dropdown-menu dropdown-responsive" aria-labelledby="fixRequestActions">
+
+                            <button class="dropdown-item" (click)="DeleteFixRequest(item.id);fixRequestActions.close();">
+                              <i class="trash-action-icon"></i><span>Delete</span>
+                            </button>
+                            <button class="dropdown-item" (click)="UpdateFixRequest(item);fixRequestActions.close();">
+                              <i class="edit-small-icon"></i><span>Update</span>
+                            </button>
+                            <button class="dropdown-item" (click)="OpenReceipt(item);fixRequestActions.close();">
+                              <i class="tooltip-icon"></i><span>Details</span>
+                            </button>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      <div *ngIf="FixRequests.length<1" class="alert alert-danger text-center">No Record Found</div>
+        <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+          <button class="btn btn-primary" [disabled]="Page<1" (click)="PreviousPage()">Previous Page</button>
+          <button class="btn btn-primary" [disabled]="FixRequests.length == 0 || FixRequests.length < 10"
+            (click)="NextPage()">Next Page</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

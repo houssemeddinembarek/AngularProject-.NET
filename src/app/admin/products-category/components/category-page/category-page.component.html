@@ -1,0 +1,27 @@
+<div class="prod">
+<br>
+<br>
+<br>
+<div class="text-center">
+    <button class="btn btn-primary" (click)="AddCategory()">Add Category</button>
+  </div>
+  <br>
+  <br>
+  
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Category Name</th>
+      <th scope="col">Comment</th>
+      <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of Data">
+      <th scope="row">{{item.categoryName}}</th>
+      <td>{{item.comment}}</td>
+      <td><button type="button" class="btn btn-outline-dark" role="button" (click)="DeleteCategory(item.categoryId)">Delete</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

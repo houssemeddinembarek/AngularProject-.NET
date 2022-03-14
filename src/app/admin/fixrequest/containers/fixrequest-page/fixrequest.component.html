@@ -1,0 +1,121 @@
+<app-fixrequest-page [Categories]="Categories" (SearchSubmit)="SearchSubmitted($event)"
+    (DateSubmit)="DateSubmitted($event)" (UpdateFixRequestSubmit)="UpdateFixRequestSubmitted($event)"
+    (DeleteFixRequestSubmit)="DeleteFixRequestSubmitted($event)" (FixRequestSubmit)="FixRequestSubmitted($event)"
+    [FixRequests]="FixRequests" (FilterSubmitted)="DateSubmitted($event)"></app-fixrequest-page>
+   
+
+    
+    <table *ngIf="addedFixReceipt != null" id="PageToPrint" #PageToPrint style="display: none;">
+        <tbody>
+            <tr>
+                <td></td>
+                <td class="container">
+                    <div class="content">
+                        <table class="main" width="100%" cellpadding="0" cellspacing="0">
+                            <tbody>
+                                <tr>
+                                    <td class="content-wrap aligncenter">
+                                        <table width="100%" cellpadding="0" cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="content-block">
+                                                        <!-- <img src="assets/img/logo.png" width="200" height="150" alt=""> -->
+                                                        <h2 style="text-align: center;">OmegaTek</h2>
+                                                    </td>
+
+                                                </tr>
+                                                <hr>
+                                                <tr>
+                                                    <td class="content-block">
+                                                        <table class="invoice">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <table class="invoice-items" cellpadding="0"
+                                                                            cellspacing="0">
+                                                                            <tbody>
+                                                                                <tr class="receipt-date">
+                                                                                    <td>{{addedFixReceipt.createdAt |
+                                                                                        date :
+                                                                                        'short'}}</td>
+                                                                                    <td class="alignright">
+                                                                                        {{addedFixReceipt.code}}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Name:</td>
+                                                                                    <td class="alignright">
+                                                                                        {{addedFixReceipt.clientName}}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>P.Num:</td>
+                                                                                    <td class="alignright">
+                                                                                        {{addedFixReceipt.phoneNumber}}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Equipement:</td>
+                                                                                    <td class="alignright">
+                                                                                        {{addedFixReceipt.equipementName}}
+                                                                                    </td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                    <td>Comment:</td>
+                                                                                    <td class="alignright">
+                                                                                        <p>{{addedFixReceipt.comment}}
+                                                                                        </p>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Price:</td>
+                                                                                    <td class="alignright">
+                                                                                        {{addedFixReceipt.price}}
+                                                                                        TND </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Advance:</td>
+                                                                                    <td class="alignright">
+                                                                                        {{addedFixReceipt.advance}} TND
+                                                                                    </td>
+                                                                                </tr>
+
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <hr>
+                                                    </td>
+                                                </tr>
+
+
+                                                <tr>
+                                                    <td class="content-block" style="text-align: center;">
+                                                        <p>Adress: imm.Radhia Zouhour Sousse
+                                                            <br>P.Num: 50399393
+                                                        </p>
+                                                        <span style="font-size: 10px;">
+                                                            لا يتحمل المحل مسؤولية أي أجهزة تركها صاحبها أكثر من 90 يوما
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+<button role="button" #trigger type="button" class="btn btn-outline-success" style="display: none;"
+    styleSheetFile="assets/styles/printStyle.css" printSectionId="PageToPrint" ngxPrint>Print Receipt</button>

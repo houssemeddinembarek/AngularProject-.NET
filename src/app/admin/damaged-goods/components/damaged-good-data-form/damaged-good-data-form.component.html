@@ -1,0 +1,36 @@
+<div class="modal-header">
+    <h4 class="preview-subject ellipsis font-weight-normal" id="modal-title">Add Record</h4>
+    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"
+        (click)="modal.dismiss('Close click')"><span aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="damagedGoodForm" (ngSubmit)="Submit()">
+        
+        <div class="justify-content-center mb-3 omega-select">
+            <ng-select [items]="products" [placeholder]='placeholder' bindLabel="title" 
+                 bindValue="id" (change)="ProductSelected($event)">
+            </ng-select>
+        </div>
+        <div *ngIf="selectedProduct">
+            <div class="card text-center">
+                <div class="card-body">
+                    <p [ngClass]="{'btn btn-danger' : selectedProduct.stock<3}">Stock: {{selectedProduct.stock}}</p>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <input class="form-control" type="number" name="quantity" placeholder="Quantity"
+                    formControlName="quantity">
+            </div>
+            <div class="input-group mb-3">
+                <textarea class="form-control" rows="4" name="comment" placeholder="Comment"
+                    formControlName="returnReason"></textarea>
+            </div>
+        </div>  
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
+
+            <button type="submit" class="btn btn-primary"
+                [disabled]="!damagedGoodForm.valid || selectedProduct == null">Confirm</button>
+        </div>
+    </form>
+  </div>

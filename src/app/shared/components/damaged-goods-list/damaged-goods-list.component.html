@@ -1,0 +1,60 @@
+    <div class="table-responsive">
+        <div *ngIf="damagedGoods && damagedGoods.length != 0">
+            <div class="row">
+                <div class="col-lg-12 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+
+                        <div style="display: inline-block; width: 100%;">
+                            <div><h4 class="card-title" style="width: fit-content;float:left;">DAMAGED GOODS</h4></div>  
+                            <div class="text-right " style="float: right;">
+                            <button type="button" class="btn btn-social-icon btn-facebook btn-rounded" (click)="AddRecord()"><i class=" typcn typcn-plus"></i></button>
+                            </div>
+                          </div>
+
+                      <div class="table-responsive mt-4">
+                        <table class="table table-bordered">                <thead>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Return Reason</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of damagedGoods">
+                        <th scope="row">{{item.createdAt}}</th>
+                        <td>{{item.productName}}</td>
+                        <td>{{item.quantity}}</td>
+                        <td>{{item.returnReason}}</td>
+                        <td>
+                            
+
+                            <div>
+                                <div #damagedActions="ngbDropdown" ngbDropdown [placement]="['bottom-left','top-left']"
+                                  class="d-inline-block actions" [autoClose]="'outside'">
+                                  <button class="btn btn-standard" [id]="'actions-' + item.id" ngbDropdownToggle><i
+                                      class="elipsiss-icon"></i></button>
+                                  <div ngbDropdownMenu class="dropdown-menu dropdown-responsive" aria-labelledby="damagedActions">
+          
+                                  <button type="button" class="dropdown-item" (click)="Delete(item.id)">Delete</button>
+                                  <button type="button" class="dropdown-item" (click)="Update(item)">Update</button>
+          
+                                  </div>
+                                </div>
+                              </div>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>        
+</div>
+<div *ngIf="!damagedGoods || damagedGoods.length ==0" class="alert alert-danger text-center">No Record Found</div>
+</div>

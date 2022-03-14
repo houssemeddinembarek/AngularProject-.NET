@@ -1,0 +1,115 @@
+ 
+
+
+  <div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+      <div style="display: inline-block; width: 100%;">
+        <div><h4 class="card-title" style="width: fit-content;float:left;">PRODUCTS</h4></div>  
+        <div class="text-right " style="float: right;">
+        <button type="button" class="btn btn-social-icon btn-facebook btn-rounded" (click)="AddProduct()"><i class=" typcn typcn-plus"></i></button>
+        </div>
+      </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div class="text-center mb-3 omega-select">
+                <ng-select [items]="categories" bindLabel="categoryName" bindValue="categoryId" placeholder="Search by category"
+                  (change)="SearchByCategory($event)" (clear)="SearchByCategory(null)">
+                </ng-select>
+              </div>
+            </div> 
+            <div class="col">
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="text" class="form-control" aria-label="Recipient's username" name="search" placeholder="Search"
+                    (keyup)="Search($event)">
+                  <div class="input-group-append">
+                    <button class="btn btn-sm btn-primary" type="button">Search</button>
+                  </div>
+                </div>
+              </div>
+            
+            
+            </div>        
+            <div> 
+          </div>
+    
+        </div>
+        <div class="row">
+          <div class="col-lg-12 grid-margin stretch-card">
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>Price</th>
+                      <th>OriginalPrice</th>
+                      <th>Stock</th>
+                      <th>Discount</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of products">
+                      <th scope="row">{{item.title}}</th>
+                      <td>{{item.price}}</td>
+                      <td>{{item.originalPrice}}</td>
+                      <td>{{item.stock}} <a class="margin-right" (click)="SetItem(item);open(content);" role="button">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-pen-fill" viewBox="0 0 16 16">
+                            <path
+                              d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z">
+                            </path>
+                          </svg>
+                        </a></td>
+                      <td>{{item.discount}}</td>
+                      <td>
+                        
+                        <div>
+                          <div #productActions="ngbDropdown" ngbDropdown [placement]="['bottom-left','top-left']"
+                            class="d-inline-block actions" [autoClose]="'outside'">
+                            <button class="btn btn-standard" [id]="'actions-' + item.id" ngbDropdownToggle><i
+                                class="elipsiss-icon"></i></button>
+                            <div ngbDropdownMenu class="dropdown-menu dropdown-responsive" aria-labelledby="productActions">
+    
+                            <button type="button" class="dropdown-item" (click)="deleteSubmit(item.id)">Delete</button>
+                            <button type="button" class="dropdown-item" (click)="UpdateProd(item)">Update</button>
+    
+                            </div>
+                          </div>
+                        </div>
+                      
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+
+                
+              </div>
+          </div>
+        </div>
+  </div>
+  </div>
+
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Update Stock</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <input type="number" name='stock' placeholder="Stock" [(ngModel)]="StockToUpdate.stock">
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="UpdateStock()"
+      (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>

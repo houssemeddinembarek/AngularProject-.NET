@@ -1,0 +1,30 @@
+.html {
+    background-color: brown;
+}
+.backbody {
+    background-image: url('/assets/img/employee.jpg');
+    background-position:center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh; 
+    
+}
+ .content {
+     overflow: scroll;
+     height: calc(100vh - 59px);
+     padding: 20px 50px 50px 50px;
+     //height:500px;
+} 
+.borders {
+    position: fixed;
+    display: inline-flex;
+    width: 100%;
+    z-index: -10;
+    background-color: #fff;
+    height: 100%;
+}
+.OmegaBody{
+    width: 100%;
+    height: 100%; 
+}

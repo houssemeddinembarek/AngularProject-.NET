@@ -1,0 +1,54 @@
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Product</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="addprodForm" (ngSubmit)="Submit()">
+                <div class="input-group mb-3">
+                    <input class="form-control" type="text" name="name" placeholder="Title" formControlName="title">
+                </div>
+                
+        
+                <div class="input-group mb-3">
+                    <textarea class="form-control" rows="4" name="comment" placeholder="Comment" formControlName="comment"></textarea>
+                </div>
+
+                
+                <select class="custom-select mb-3" formControlName="categoryId">
+                  <option disabled>Choose Value</option>
+                  <option value="">Choose Category</option>
+                  <option *ngFor="let item of category" [value]="item.categoryId">
+                    {{item.categoryName}}
+                  </option>
+                </select>
+                
+  
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" name="price" placeholder="Price" formControlName="price">
+                  <span class="input-group-text">$</span>
+                </div>
+                
+                <div class="input-group mb-3">
+                    <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" name="Originalprice" placeholder="Original Price" formControlName="originalPrice">
+                    <span class="input-group-text">$</span>
+                  </div>
+  
+                  <div class="input-group mb-3">
+                    <input class="form-control" type="number" name="stock" placeholder="Stock"  formControlName="stock">
+                </div>
+  
+                <div class="input-group">
+                    <input class="form-control" type="number" name="discount" placeholder="Discount" formControlName="discount">
+                </div>
+  
+  
+                
+              
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" *ngIf="addprodForm.value.title==''" [disabled]="!addprodForm.valid">Add</button>
+                <button type="submit" class="btn btn-primary" *ngIf="addprodForm.value.title!==''" [disabled]="!addprodForm.valid">Update</button>
+
+            </div>
+        </form>
+        </div>

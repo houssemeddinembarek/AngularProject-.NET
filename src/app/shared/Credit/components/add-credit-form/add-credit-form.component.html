@@ -1,0 +1,23 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Credit</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="activeModal.dismiss('Close click')"></button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="CreditForm" (ngSubmit)="Submit()">
+        <div class="input-group mb-3">
+            <input class="form-control" type="text" [readonly]="CreditToUpdate" name="Name" placeholder="Name" formControlName="name">
+        </div>
+        <div class="input-group mb-3">
+            <input class="form-control" type="text" name="Comment" placeholder="Comment" formControlName="comment">
+        </div>
+        <div class="input-group mb-3">
+            <input class="form-control" type="text" [readonly]="CreditToUpdate" name="Phone" placeholder="Phone" formControlName="phone">
+        </div>
+        <div class="input-group mb-3">
+            <input class="form-control" type="number" name="creditAmount" placeholder="Credit Amount" formControlName="creditAmount">
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" [disabled]="!CreditForm.valid">Add</button>
+        </div>
+    </form>
+</div>

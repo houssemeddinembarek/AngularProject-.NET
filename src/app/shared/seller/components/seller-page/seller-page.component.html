@@ -1,0 +1,134 @@
+ 
+  
+ 
+
+ 
+  <div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <div style="display: inline-block; width: 100%;">
+          <div ><h4 class="card-title" style="width: fit-content;float:left;">SELLER</h4></div>
+          <div   class="text-right " style="float: right;" >
+            <button type="button" class="btn btn-social-icon btn-facebook btn-rounded" (click)="AddPurchase()"><i class=" typcn typcn-plus"></i></button>
+          </div>
+        </div>
+        <div class="conatiner">
+          <div class="row">
+            <div class="col">
+              <ng-select [(ngModel)]="selectedProduct" (change)="SearchProductByName()">
+                <ng-option *ngFor="let product of Products" [value]="product.id">{{product.title}}</ng-option>
+              </ng-select>
+            </div> 
+            <div class="col">
+              <form class="form-inline justify-content-center mb-3">
+                <div class="form-group mr-2">
+                  <div class="input-group">
+                    <input class="form-control" name="selectedDate" placeholder="yyyy-mm-dd" [(ngModel)]="emittedDate"
+                      (ngModelChange)="performSearch()" (dateSelect)="onDateSelect($event)" ngbDatepicker #d2="ngbDatepicker">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"><svg
+                          xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-keyboard"
+                          viewBox="0 0 16 16">
+                          <path
+                            d="M14 5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h12zM2 4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H2z" />
+                          <path
+                            d="M13 10.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm0-2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-5 0A.25.25 0 0 1 8.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 8 8.75v-.5zm2 0a.25.25 0 0 1 .25-.25h1.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-1.5a.25.25 0 0 1-.25-.25v-.5zm1 2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-5-2A.25.25 0 0 1 6.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 6 8.75v-.5zm-2 0A.25.25 0 0 1 4.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 4 8.75v-.5zm-2 0A.25.25 0 0 1 2.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 2 8.75v-.5zm11-2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-2 0a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-2 0A.25.25 0 0 1 9.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 9 6.75v-.5zm-2 0A.25.25 0 0 1 7.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 7 6.75v-.5zm-2 0A.25.25 0 0 1 5.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 5 6.75v-.5zm-3 0A.25.25 0 0 1 2.25 6h1.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-1.5A.25.25 0 0 1 2 6.75v-.5zm0 4a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm2 0a.25.25 0 0 1 .25-.25h5.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-5.5a.25.25 0 0 1-.25-.25v-.5z" />
+                        </svg></button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            
+            </div>
+          </div>
+        </div>        
+          
+
+          <div class="table-responsive">
+            <table class="table table-bordered">    
+              <thead>
+                <tr>
+                  <th >Product</th>
+                  <th >Date</th>
+                  <th >Income Per Unit</th>
+                  <th >Total Income</th>
+                  <th >Original Price</th>
+                  <th >Total Original Price</th>
+                  <th >Quantity</th>
+                  <th >Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of Purchases">
+                  <td >{{item.productName}}</td>
+                  <td>{{item.date | date:'dd/MM/yy, h:mm a'}}</td>
+                  <td>{{item.income}}</td>
+                  <td>{{item.income * item.quantity}}</td>
+                  <td>{{item.originalPrice}}</td>
+                  <td>{{item.originalPrice * item.quantity}}</td>
+                  <td>{{item.quantity}}</td>
+                  <td>
+                    <div>
+                      <div #fixRequestActions="ngbDropdown" ngbDropdown [placement]="['bottom-left','top-left']"
+                        class="d-inline-block actions" [autoClose]="'outside'">
+                        <button class="btn btn-standard" [id]="'actions-' + item.id" ngbDropdownToggle><i
+                            class="elipsiss-icon"></i></button>
+                        <div ngbDropdownMenu class="dropdown-menu dropdown-responsive" aria-labelledby="fixRequestActions">
+
+                        <button type="button" class="dropdown-item" (click)="DeletePurchase(item.id)">Delete</button>
+                        <button type="button" class="dropdown-item" (click)="SetItem(item);open(content)">Update</button>
+
+                        <button type="button" class="dropdown-item" (click)="ReturnProduct(item)">Return</button>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+                
+          <br>
+          <div class="text-center">
+            <div class="alert alert-dark fs-4">Revenue: {{Revenue| currency:'TND'}}</div>
+            <div class="alert alert-dark fs-4">Sales: {{Sales| currency:'TND'}}</div>
+          </div>
+          <div *ngIf="Purchases.length<1" class="alert alert-danger text-center">No Record Found</div>
+          <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+            <button class="btn btn-primary" [disabled]="Page<1" (click)="PreviousPage()">Previous Page</button>
+            <button class="btn btn-primary" [disabled]="Purchases.length == 0 || Purchases.length < 10"
+              (click)="NextPage()">Next Page</button>
+          </div>
+
+    </div>
+  </div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Income</span>
+        </div>
+        <input type="text" name="income" placeholder="Income" [(ngModel)]="PurchaseToUpdate.income" class="form-control" aria-label="Amount (to the nearest dollar)">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Quantity</span>
+        </div>
+        <input type="text" name="outcome" placeholder="Outcome" [(ngModel)]="PurchaseToUpdate.quantity" class="form-control" aria-label="Amount (to the nearest dollar)">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="Update()"
+      (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>

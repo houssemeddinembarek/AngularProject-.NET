@@ -1,0 +1,51 @@
+
+  <div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-body">
+            <div style="display: inline-block; width: 100%;">
+              <div><h4 class="card-title" style="width: fit-content;float:left;">EQUIPEMENT</h4></div>  
+              <div class="text-right " style="float: right;">
+              <button type="button" class="btn btn-social-icon btn-facebook btn-rounded"  (click)="AddEquipementCategory()"><i class=" typcn typcn-plus"></i></button>
+              </div>
+            </div>
+
+          <div class="table-responsive">
+            <table class="table table-bordered mt-4">   
+               <thead>
+                <tr>
+                  <th scope="col">Category Name</th>
+                  <th scope="col">Comment</th>
+                  <th scope="col" style="width: 20px;">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of EquipementCategory">
+                  <th scope="row">{{item.name}}</th>
+                  <td>{{item.comment}}</td>
+                  <td>
+                    <div>
+                      <div #equipmentActions="ngbDropdown" ngbDropdown [placement]="['bottom-left','top-left']"
+                        class="d-inline-block actions" [autoClose]="'outside'">
+                        <button class="btn btn-standard" [id]="'actions-' + item.id" ngbDropdownToggle><i
+                            class="elipsiss-icon"></i></button>
+                        <div ngbDropdownMenu class="dropdown-menu dropdown-responsive" aria-labelledby="equipmentActions">
+
+                        <button type="button" class="dropdown-item" (click)="DeleteEquipementCategory(item.id)">Delete</button>
+                        <button type="button" class="dropdown-item" (click)="UpdateEquipementCategory(item)">Update</button>
+
+                        </div>
+                      </div>
+                    </div>
+                    
+                  
+                  </td>
+                </tr>
+                </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

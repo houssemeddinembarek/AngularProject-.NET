@@ -1,0 +1,209 @@
+@import "./styles/login.scss";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "./styles/icons.scss";
+@import "./css/vertical-layout-light/style.scss";
+@import "./typicons.font/font/typicons.css";
+
+
+
+
+body {
+    min-height: 100vh;
+}
+
+div {
+    font-size: 1rem;
+}
+.card{
+    min-height: 400px;
+}
+.omega-table {
+    table {
+        background-color: rgb(255, 255, 255);
+        background-color: rgb(199 195 197 / 90%);
+        filter: blur(0px);
+        border-collapse: separate;
+        border-spacing: 0 5px;
+        border-radius: 10px;
+        padding: 5px 15px;
+
+        tr {
+            border-radius: 10px;
+        }
+    }
+
+    th {
+        font-weight: 900;
+    }
+
+    td {
+        font-weight: 600;
+        .content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+    tbody tr td {
+        border-bottom: none !important;
+        vertical-align: middle !important;
+        height: 45px !important;
+        text-overflow: ellipsis !important;
+    }
+    .table td,
+    .table th {
+        //padding: unset !important;
+        border-top: none !important;
+        padding: 5px !important;
+    }
+    td {
+        //padding-left: 20px !important;
+        border-bottom: 1px solid #f4f0f0;
+        max-width: 100px;
+        text-overflow: ellipsis;
+        white-space: break-spaces;
+
+        .dropdown-menu {
+            transform: translate(-90%, 27px) !important;
+            min-width: 0rem;
+            top: 20px;
+            z-index: 1001;
+            box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
+            button {
+                font-size: 12px;
+                font-family: "Roboto Regular";
+                font-weight: normal;
+                color: #636770;
+                margin: 0px 15px 0px 0px;
+                padding: 0.3rem 0rem !important;
+                background-color: #fff;
+                opacity: 1 !important;
+                outline: none;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                &:hover {
+                    //color: #0e47f0;
+                    cursor: pointer;
+                    background-color: #e9e2e270;
+                    border-radius: 7px;
+                }
+                span {
+                    display: inline-flex;
+                }
+            }
+            button:disabled {
+                color: #c4c7cd;
+            }
+        }
+    }
+}
+.card-body > * {
+    display: block;
+}
+.dropdown-menu {
+    min-width: 100% !important;
+    padding: 0.2rem !important;
+}
+
+.dropdown-toggle::after {
+    display: none;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+}
+
+
+.prod {
+    background-image: url("/src/assets/img/employee.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+#fixRequestFilters{
+    width: 248px;
+    background-color: #007bff;
+    color: white;
+}
+.form-check {
+    --border: #d1d5db;
+    --cursor: #89909e;
+    --checked: #1771e6;
+    --checked-cursor: #fff;
+    position: relative;
+    font-size: 22px;
+    cursor: pointer;
+}
+.form-check input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.form-check label {
+    display: grid;
+    grid-template-columns: 2em 1fr;
+    grid-template-areas: "checkbox label";
+    gap: 0.5em;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.form-check label::before,
+.form-check label::after {
+    grid-area: checkbox;
+    content: "";
+    display: block;
+}
+
+.form-check label::before {
+    content: "";
+    grid-area: checkbox;
+    display: block;
+    width: 70%;
+    height: 1em;
+    border: 1px var(--border);
+    margin-top: 0.1em;
+}
+.form-check label::after {
+    position: relative;
+    left: -9px;
+    top: 2px;
+    width: calc(1em - 2px);
+    height: calc(1em - 4px);
+    border-radius: 70%;
+    border: 1px solid #ada8a8;
+    background-color: var(--cursor);
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0.3s;
+}
+.form-check input:checked + label::before {
+    background-color: var(--checked);
+    border-color: var(--checked);
+    height: 18px;
+    width: 25px;
+    border-radius: 40%;
+}
+.form-check input:checked + label::after {
+    background-color: var(--checked-cursor);
+    transform: translate(1em);
+}
+.form-check input:focus + label::before {
+    box-shadow: 0 0 0 0 0.25em;
+    border-color: var(--checked);
+}
+.form-check input:not(:checked) + label::before {
+    background-color: rgb(124, 136, 136);
+    border-radius: 40%;
+    width: 25px;
+    height: 18px;
+}
+.form-check input:not(:checked) + label::after {
+    background-color: var(--checked-cursor);
+}

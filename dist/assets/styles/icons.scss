@@ -1,0 +1,51 @@
+@import "./base/mixin.scss";
+i {
+    border-radius: 10px;
+    transition: all linear 0.4s;
+    &.edit-small-icon {
+        &:after {
+            width: 29px;
+            height: 20px;
+            background-size: 13px 13px;
+            display: inline-block;
+            /* position: relative; */
+            background-repeat: no-repeat;
+            content: " ";
+            background-position: bottom;
+            background-image: url("/assets/img/svg/icons/edit-pencil-small.svg");
+        }
+    }
+    &.trash-action-icon {
+        &:after {
+            @include icon-dimensions(29, 20, 13, 13);
+            background-image: url("/assets/img/svg/icons/trash.svg");
+        }
+    }
+    &.tooltip-icon {
+        &:after {
+            width: 29px;
+            height: 20px;
+            background-size: 13px 13px;
+            display: inline-block;
+            /* position: relative; */
+            background-repeat: no-repeat;
+            content: " ";
+            background-position: bottom;
+            background-image: url("/assets/img/svg/icons/tooltip.svg");
+        }
+    }
+    &.elipsiss-icon {
+        &:after {
+            display: block;
+            position: inherit;
+            content: " ";
+            width: 25px;
+            height: 25px;
+            background-size: 15px 15px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url("/assets/img/svg/icons/elipssis-three-dots.svg");
+        }
+    }
+    
+}

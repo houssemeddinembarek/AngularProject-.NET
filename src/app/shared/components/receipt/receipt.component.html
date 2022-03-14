@@ -1,0 +1,178 @@
+    <button type="button" class="close" data-bs-dismiss="modal" style="margin-right: 10px;" aria-label="Close"
+    (click)="modal.dismiss('Close click')"><span aria-hidden="true">&times;</span></button>
+<table id="PageToPrint1" #PageToPrint1 style="display: none;">
+    <tbody>
+        <tr>
+            <td></td>
+            <td class="container">
+                <div class="content">
+                    <table class="main" width="100%" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td class="content-wrap aligncenter">
+                                    <table width="100%" cellpadding="0" cellspacing="0">
+                                        <tbody>
+                                            <tr>
+                                                <td class="content-block">
+                                                    <!-- <img src="assets/img/logo.png" width="200" height="150" alt=""> -->
+                                                    <h2 style="text-align: center;">MEGATEK</h2>
+                                                </td>
+
+                                            </tr>
+                                            <hr>
+                                            <tr>
+                                                <td class="content-block">
+                                                    <table class="invoice">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <table class="invoice-items" cellpadding="0"
+                                                                        cellspacing="0">
+                                                                        <tbody>
+                                                                            <tr class="receipt-date">
+                                                                                <td>{{Receipt.createdAt | date :
+                                                                                    'short'}}</td>
+                                                                                <td class="alignright">{{Receipt.code}}
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Name:</td>
+                                                                                <td class="alignright">
+                                                                                    {{Receipt.clientName}}</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>P.Num:</td>
+                                                                                <td class="alignright">
+                                                                                    {{Receipt.phoneNumber}}</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Equipement:</td>
+                                                                                <td class="alignright">
+                                                                                    {{Receipt.equipementName}}</td>
+                                                                            </tr>
+                                                                            
+                                                                            <tr>
+                                                                                <td>Comment:</td>
+                                                                                <td class="alignright">
+                                                                                    <p>{{Receipt.comment}}</p>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Price:</td>
+                                                                                <td class="alignright">{{Receipt.price}}
+                                                                                    TND </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Advance:</td>
+                                                                                <td class="alignright">
+                                                                                    {{Receipt.advance}} TND</td>
+                                                                            </tr>
+
+
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <hr>
+                                                </td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td class="content-block" style="text-align: center;">
+                                                    <p>Adress: imm.Radhia Zouhour Sousse
+                                                        <br>P.Num: 50399393
+                                                    </p>
+                                                    <span style="font-size: 10px;">
+                                                        لا يتحمل المحل مسؤولية أي أجهزة تركها صاحبها أكثر من 90 يوما
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+<div class="details">
+    <div class="card1">
+        <span class="logo">MEGATEK</span>
+    </div>
+    <div class="row">
+        <div class="col details-content">
+            <div class="element-1">
+                <span class="label-title">Name:</span>
+                <span class="lable-content">{{Receipt.clientName}}</span>
+            </div>
+            <div class="element-1">
+                <span class="label-title">P.Num:</span>
+                <span class="lable-content">{{Receipt.phoneNumber}}</span>
+            </div>
+            <div class="element-1">
+                <span class="label-title">Equipement:</span>
+                <span class="lable-content">{{Receipt.equipementName}}</span>
+            </div>
+            
+            <div class="element-1">
+                <span class="label-title">Code:</span>
+                <span class="lable-content">{{Receipt.code}}</span>
+            </div>
+            <div class="element-1">
+                <span class="label-title">Price:</span>
+                <span class="lable-content">{{Receipt.price}} TND</span>
+            </div>
+            <div class="element-1">
+                <span class="label-title">Advance:</span>
+                <span class="lable-content">{{Receipt.clientName}}</span>
+            </div>
+            <div class="element-1">
+                <span class="label-title">Comment:</span>
+                <span class="lable-content">{{Receipt.comment}}</span>
+            </div>
+            <div class="element-1">
+                <span class="label-title">Date:</span>
+                <span class="lable-content">{{Receipt.createdAt| date:'short'}}</span>
+            </div>
+        </div>
+        <div class="col details-settings">
+            <div class="form-check">
+                <input type="checkbox" [id]="Receipt.id + '+isFixed-details'" [name]="Receipt.id"
+                    [checked]="Receipt.isFixed" (change)="ChangeStatus('isFixed')">
+                <label [for]="Receipt.id + '+isFixed-details'">
+                    <span> Is fixed</span></label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" [id]="Receipt.id + '+isPayed-details'" [name]="Receipt.id"
+                    [checked]="Receipt.isPayed" (change)="ChangeStatus('isPayed')">
+                <label [for]="Receipt.id + '+isPayed-details'">
+                    <span> Is payed</span></label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" [id]="Receipt.id + '+isDelivered-details'" [name]="Receipt.id"
+                    [checked]="Receipt.isDelivered" (change)="ChangeStatus('isDelivered')">
+                <label [for]="Receipt.id + '+isDelivered-details'">
+                    <span> Is delivered</span></label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" [id]="Receipt.id + '+unfixable-details'" [name]="Receipt.id"
+                    [checked]="Receipt.unfixable" (change)="ChangeStatus('unfixable')">
+                <label [for]="Receipt.id + '+unfixable-details'">
+                    <span> Unfixable</span></label>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="actions">
+    <button role="button" class="btn btn-outline-success" styleSheetFile="assets/styles/printStyle.css"
+        printSectionId="PageToPrint1" ngxPrint>Print Receipt</button>
+    <button role="button" class="btn btn-outline-primary" (click)="Save()">Save</button>
+</div>

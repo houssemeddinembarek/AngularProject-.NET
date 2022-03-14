@@ -1,0 +1,38 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Add Purchase</h5>
+    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"
+        (click)="activeModal.dismiss('Close click')"><span aria-hidden="true">&times;</span></button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="PurchaseForm" (ngSubmit)="Submit()">
+        <div class="justify-content-center mb-3 omega-select">
+            <ng-select [items]="ProductNameList" [placeholder]='placeholder' (change)="ProdName($event)">
+            </ng-select>
+        </div>
+        <div *ngIf="ProductName">
+            <div class="card text-center">
+                <div class="card-header">
+                    {{ProdDetails.title}}
+                </div>
+                <div class="card-body">
+                    <b class="card-text">Price: {{ProdDetails.price}}</b>
+                    <a [ngClass]="{'btn btn-danger' : ProdDetails.stock<3}">Stock: {{ProdDetails.stock}}</a>
+                    <h5 class="card-title">Discount: {{ProdDetails.discount}}</h5>
+
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <input class="form-control" type="number" name="income" placeholder="Income" formControlName="income">
+            </div>
+
+            <div class="input-group mb-3">
+                <input class="form-control" type="number" name="quantity" placeholder="Quantity"
+                    formControlName="quantity">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary"
+                [disabled]="!PurchaseForm.valid || PurchaseForm.value.quantity > quantity">Add</button>
+        </div>
+    </form>
+</div>

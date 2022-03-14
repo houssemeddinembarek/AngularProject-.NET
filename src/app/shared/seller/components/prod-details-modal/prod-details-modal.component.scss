@@ -1,0 +1,22 @@
+.modal-title {
+    text-align: center;
+    width: 100%;
+}
+.product_details {
+    padding: 1rem 2rem;
+    div {
+        display: flex;
+        justify-content: space-between;
+
+        span:last-child {
+            color: #000;
+            font-weight: bold;
+        }
+    }
+    div:last-child {
+        display: block;
+    }
+}
+.low-quantity {
+    color: rgb(241, 11, 11) !important;
+}

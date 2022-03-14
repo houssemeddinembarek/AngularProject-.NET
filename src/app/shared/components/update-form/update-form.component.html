@@ -1,0 +1,76 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Add Fix Request</h5>
+  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"
+  (click)="activeModal.dismiss('Close click')"><span aria-hidden="true">&times;</span></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="UpdateForm" (ngSubmit)="Submit()">
+    <div class="input-group mb-3">
+      <input class="form-control" type="text" name="equipementName" placeholder="Equipement Name"
+        formControlName="equipementName">
+    </div>
+    <div class="input-group mb-3">
+      <textarea class="form-control" rows="4" name="comment" placeholder="Comment" formControlName="comment"></textarea>
+    </div>
+    <select class="custom-select mb-3" formControlName="fixCategoryId">
+      <option disabled>Choose Value</option>
+      <option value="">Choose Category</option>
+      <option *ngFor="let item of Categories" [value]="item.id">
+        {{item.name}}
+      </option>
+    </select>
+    <div class="input-group mb-3">
+      <input class="form-control" type="number" name="price" placeholder="Price" formControlName="price">
+    </div>
+    <div class="input-group mb-3">
+      <input class="form-control" type="text" name="clientName" placeholder="Client Name" formControlName="clientName">
+    </div>
+    <div class="input-group mb-3">
+      <input class="form-control" type="number" name="phoneNumber" placeholder="Phone Number"
+        formControlName="phoneNumber">
+    </div>
+    <div class="input-group mb-3">
+      <input class="form-control" type="text" name="advance" placeholder="Advance" formControlName="advance">
+    </div>
+    <div class="input-group mb-3">
+      <input class="form-control" type="number" name="discount" placeholder="Discount" formControlName="discount">
+    </div>
+    <div class="mb-3 row">
+      <div class="col">
+        <div class="form-check">
+          <input type="checkbox" id="isFixed" name="isFixed" [checked]="UpdateFixRequest.isFixed"
+            formControlName="isFixed">
+          <label for="isFixed">
+            <span> Is fixed</span>
+          </label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="isPayed" name="isPayed" [checked]="UpdateFixRequest.isPayed"
+            formControlName="isPayed">
+          <label for="isPayed">
+            <span> Is payed</span>
+          </label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-check">
+          <input type="checkbox" id="isDelivered" name="isDelivered" [checked]="UpdateFixRequest.isDelivered"
+            formControlName="isDelivered">
+          <label for="isDelivered">
+            <span> Is delivered</span>
+          </label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="unfixable" name="unfixable" [checked]="UpdateFixRequest.unfixable"
+            formControlName="unfixable">
+          <label for="unfixable">
+            <span> Unfixable</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary" [disabled]="!UpdateForm.valid">Save</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,20 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Equipement Category</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="activeModal.dismiss('Close click')"></button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="AddEquipementCategory" (ngSubmit)="Submit()">
+        <div class="input-group mb-3">
+            <input class="form-control" type="text" name="name" placeholder="Title" formControlName="name">
+        </div>
+
+
+        <div class="input-group mb-3">
+            <textarea class="form-control" rows="4" name="comment" placeholder="comment"
+                formControlName="comment"></textarea>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" [disabled]="!AddEquipementCategory.valid">Add</button>
+        </div>
+    </form>
+</div>
